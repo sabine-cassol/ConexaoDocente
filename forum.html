@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexão Docente - Fórum</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+       /* Estilo do cabeçalho */
+        header {
+            position: relative;
+            width: 100%;
+            min-height: 50vh; /* Define uma altura mínima */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            font-size: 2em;
+            overflow: hidden;
+        }
+
+        /* Estilo do vídeo de fundo */
+        header video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover; /* Garante que o vídeo cubra a área do cabeçalho */
+            object-position: center; /* Centraliza o conteúdo do vídeo */
+            z-index: -1;
+        }
+
+
+        header h1 {
+            position: relative;
+            z-index: 1;
+            font-size: 2.5em;
+            color: #fff;
+            margin: 10px 0;
+        }
+
+      /* Estilo do menu de navegação */
+        nav {
+            background-color: #4CAF50;
+            overflow: hidden;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilo do conteúdo principal */
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Estilos para o fórum */
+        #forumContainer {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+
+        .post, .response {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .response {
+            margin-left: 30px;
+            background-color: #f9f9f9;
+        }
+
+        .post-author, .response-author {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .post-content, .response-content {
+            margin-top: 5px;
+        }
+
+        #postForm {
+            margin-bottom: 20px;
+        }
+
+        /* Estilo do rodapé */
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Responsividade para dispositivos móveis */
+        @media (max-width: 768px) {
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+
+            header {
+                height: 150px;
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Vídeo de fundo no cabeçalho -->
+        <video autoplay loop muted playsinline>
+            <source src="video.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+        
+    </header>
+
+    <nav>
+        <a href="index.html">Página Inicial</a>
+        <a href="quem-somos.html">Quem Somos</a>
+        <a href="sequencias-didaticas.html">Sequências Didáticas</a>
+        <a href="jogos.html">Jogos</a>
+        <a href="video.html">Vídeo</a>
+        <a href="forum.html">Fórum</a>
+        <a href="contato.html">Contato</a>
+    </nav>
+
+    <div class="container">
+        <section id="forumContainer">
+           <h5><p>Bem-vindo ao nosso Fórum de Interação!</5></p><br>
+<p>Aqui é um espaço colaborativo para troca de ideias, experiências e práticas sobre planejamento e execução de sequências didáticas.</p> <br>Compartilhe suas dúvidas, inspire-se com as experiências de outros professores e contribua com sugestões que podem enriquecer o ensino de todos.</p> <br><p>Juntos, podemos criar abordagens mais inovadoras e eficazes para a educação. </p>Participe e faça parte dessa rede de aprendizado colaborativo!</p><br><br>
+
+            <!-- Formulário para enviar perguntas -->
+            <div id="postForm">
+                <input type="text" id="userName" placeholder="Seu Nome" required><br><br>
+                <textarea id="userQuestion" rows="4" placeholder="Escreva sua dúvida..." required></textarea><br><br>
+                <button onclick="addPost()">Enviar Dúvida</button>
+            </div>
+
+            <!-- Container para as perguntas e respostas -->
+            <div id="postsContainer">
+                <!-- As postagens serão exibidas aqui -->
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Conexão Docente - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        // Armazena as postagens temporariamente
+        const posts = [];
+
+        // Função para adicionar uma nova pergunta ao fórum
+        function addPost() {
+            const name = document.getElementById("userName").value;
+            const question = document.getElementById("userQuestion").value;
+
+            if (name && question) {
+                const post = {
+                    author: name,
+                    content: question,
+                    responses: []
+                };
+                
+                posts.push(post);
+                renderPosts();
+                document.getElementById("userName").value = '';
+                document.getElementById("userQuestion").value = '';
+            } else {
+                alert("Por favor, preencha seu nome e sua dúvida.");
+            }
+        }
+
+        // Função para renderizar todas as perguntas e respostas
+        function renderPosts() {
+            const postsContainer = document.getElementById("postsContainer");
+            postsContainer.innerHTML = '';
+
+            posts.forEach((post, postIndex) => {
+                const postDiv = document.createElement("div");
+                postDiv.classList.add("post");
+
+                postDiv.innerHTML = `
+                    <p class="post-author">${post.author} perguntou:</p>
+                    <p class="post-content">${post.content}</p>
+                    <button onclick="addResponse(${postIndex})">Responder</button>
+                    <div class="responses">
+                        ${post.responses.map(response => `
+                            <div class="response">
+                                <p class="response-author">${response.author} respondeu:</p>
+                                <p class="response-content">${response.content}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+
+                postsContainer.appendChild(postDiv);
+            });
+        }
+
+        // Função para adicionar uma resposta a uma pergunta específica
+        function addResponse(postIndex) {
+            const responseAuthor = prompt("Seu nome:");
+            const responseContent = prompt("Sua resposta:");
+
+            if (responseAuthor && responseContent) {
+                posts[postIndex].responses.push({
+                    author: responseAuthor,
+                    content: responseContent
+                });
+                
+                renderPosts();
+            } else {
+                alert("Por favor, preencha seu nome e sua resposta.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interação para Professores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo do cabeçalho */
+        header {
+            position: relative;
+            width: 100%;
+            min-height: 50vh; /* Define uma altura mínima */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            font-size: 2em;
+            overflow: hidden;
+        }
+
+        /* Estilo do vídeo de fundo */
+        header video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover; /* Garante que o vídeo cubra a área do cabeçalho */
+            object-position: center; /* Centraliza o conteúdo do vídeo */
+            z-index: -1;
+        }
+
+        /* Estilo do menu de navegação */
+        nav {
+            background-color: #4CAF50;
+            overflow: hidden;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilo do conteúdo principal */
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Estilo do formulário de login */
+        .login-container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-container h2 {
+            text-align: center;
+        }
+
+        .login-container input[type="email"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsividade para dispositivos móveis */
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block;
+                margin: 5px 0;
+            }
+
+            header {
+                min-height: 30vh; /* Ajusta a altura mínima em dispositivos móveis */
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <!-- Vídeo de fundo no cabeçalho -->
+    <video autoplay loop muted playsinline>
+        <source src="video.mp4" type="video/mp4">
+        Seu navegador não suporta a tag de vídeo.
+    </video>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Página Inicial</a></li>
+        <li><a href="quem-somos.html">Quem Somos</a></li>
+        <li><a href="sequencias-didaticas.html">Sequências Didáticas</a></li>
+        <li><a href="jogos.html">Jogos</a></li>
+        <li><a href="forum.html">Fórum</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="video.html">Vídeo</a></li>
+    </ul>
+</nav>
+
+<main>
+    <h2>Bem-vindo ao nosso site de interação para professores!</h2>
+    <p>Explore os recursos, aprenda novas formas de trabalhar conteúdos importantes e colabore com outros professores para melhorar a educação.</p>
+    
+    <!-- Formulário de Login -->
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="login.php" method="POST">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</main>
+
+</body>
+</html>

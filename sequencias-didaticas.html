@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequências Didáticas - Conexão Docente</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+      /* Estilo do cabeçalho */
+        header {
+            position: relative;
+            width: 100%;
+            min-height: 50vh; /* Define uma altura mínima */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            font-size: 2em;
+            overflow: hidden;
+        }
+
+        /* Estilo do vídeo de fundo */
+        header video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover; /* Garante que o vídeo cubra a área do cabeçalho */
+            object-position: center; /* Centraliza o conteúdo do vídeo */
+            z-index: -1;
+        }
+
+
+        /* Estilo do menu de navegação */
+        nav {
+            background-color: #4CAF50;
+            overflow: hidden;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilo do conteúdo principal */
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Responsividade para dispositivos móveis */
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block;
+                margin: 5px 0;
+            }
+
+            header {
+                height: 150px;
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <!-- Vídeo de fundo no cabeçalho -->
+    <video autoplay loop muted playsinline>
+        <source src="video.mp4" type="video/mp4">
+        Seu navegador não suporta a tag de vídeo.
+    </video>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Página Inicial</a></li>
+        <li><a href="quem-somos.html">Quem Somos</a></li>
+        <li><a href="sequencias-didaticas.html">Sequências Didáticas</a></li>
+        <li><a href="jogos.html">Jogos</a></li>
+        <li><a href="forum.html">Fórum</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="video.html">Vídeo</a></li>
+    </ul>
+</nav>
+        <p>Encontre e compartilhe sequências didáticas para enriquecer suas aulas.</p>
+    </section>
+ </div>
+
+</body>
+</html>
