@@ -17,11 +17,11 @@
             padding: 0;
         }
 
-       /* Estilo do cabeçalho */
+        /* Estilo do cabeçalho */
         header {
             position: relative;
             width: 100%;
-            min-height: 50vh; /* Define uma altura mínima */
+            min-height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -31,7 +31,6 @@
             overflow: hidden;
         }
 
-        /* Estilo do vídeo de fundo */
         header video {
             position: absolute;
             top: 50%;
@@ -41,11 +40,10 @@
             min-height: 100%;
             width: auto;
             height: auto;
-            object-fit: cover; /* Garante que o vídeo cubra a área do cabeçalho */
-            object-position: center; /* Centraliza o conteúdo do vídeo */
+            object-fit: cover;
+            object-position: center;
             z-index: -1;
         }
-
 
         header h1 {
             position: relative;
@@ -55,7 +53,7 @@
             margin: 10px 0;
         }
 
-      /* Estilo do menu de navegação */
+        /* Estilo do menu de navegação */
         nav {
             background-color: #4CAF50;
             overflow: hidden;
@@ -73,14 +71,22 @@
             background-color: #45a049;
         }
 
-        /* Estilo do conteúdo principal */
+        /* Estilo principal */
         .container {
             padding: 20px;
-            text-align: center;
         }
 
-        /* Estilos para o fórum */
-        #forumContainer {
+        .forum-section {
+            margin-bottom: 30px;
+        }
+
+        .forum-section h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        .forum-section .posts-container {
             max-width: 800px;
             margin: auto;
             text-align: left;
@@ -111,19 +117,14 @@
             margin-bottom: 20px;
         }
 
-        /* Estilo do rodapé */
         footer {
             background-color: #4CAF50;
             color: white;
             text-align: center;
             padding: 10px;
             width: 100%;
-            position: fixed;
-            bottom: 0;
-            left: 0;
         }
 
-        /* Responsividade para dispositivos móveis */
         @media (max-width: 768px) {
             nav a {
                 display: block;
@@ -139,12 +140,11 @@
 </head>
 <body>
     <header>
-        <!-- Vídeo de fundo no cabeçalho -->
         <video autoplay loop muted playsinline>
             <source src="video.mp4" type="video/mp4">
             Seu navegador não suporta a tag de vídeo.
         </video>
-        
+        <h1>Fórum Conexão Docente</h1>
     </header>
 
     <nav>
@@ -158,20 +158,45 @@
     </nav>
 
     <div class="container">
-        <section id="forumContainer">
-           <h5><p>Bem-vindo ao nosso Fórum de Interação!</5></p><br>
-<p>Aqui é um espaço colaborativo para troca de ideias, experiências e práticas sobre planejamento e execução de sequências didáticas.</p> <br>Compartilhe suas dúvidas, inspire-se com as experiências de outros professores e contribua com sugestões que podem enriquecer o ensino de todos.</p> <br><p>Juntos, podemos criar abordagens mais inovadoras e eficazes para a educação. </p>Participe e faça parte dessa rede de aprendizado colaborativo!</p><br><br>
-
-            <!-- Formulário para enviar perguntas -->
-            <div id="postForm">
-                <input type="text" id="userName" placeholder="Seu Nome" required><br><br>
-                <textarea id="userQuestion" rows="4" placeholder="Escreva sua dúvida..." required></textarea><br><br>
-                <button onclick="addPost()">Enviar Dúvida</button>
+        <!-- Tema 1 -->
+        <section class="forum-section">
+            <h2>1. Planejamento de Sequências Didáticas</h2>
+            <p>Compartilhe dicas e estratégias para planejar sequências didáticas eficazes.</p>
+            <div class="posts-container" id="topic1">
+                <!-- As postagens serão adicionadas dinamicamente aqui -->
             </div>
+            <div id="postForm1">
+                <input type="text" id="userName1" placeholder="Seu Nome" required><br><br>
+                <textarea id="userQuestion1" rows="4" placeholder="Escreva sua dúvida ou ideia..." required></textarea><br><br>
+                <button onclick="addPost('topic1', 'userName1', 'userQuestion1')">Enviar</button>
+            </div>
+        </section>
 
-            <!-- Container para as perguntas e respostas -->
-            <div id="postsContainer">
-                <!-- As postagens serão exibidas aqui -->
+        <!-- Tema 2 -->
+        <section class="forum-section">
+            <h2>2. Avaliação em Sequências Didáticas</h2>
+            <p>Discuta métodos de avaliação que valorizem o aprendizado dos alunos.</p>
+            <div class="posts-container" id="topic2">
+                <!-- As postagens serão adicionadas dinamicamente aqui -->
+            </div>
+            <div id="postForm2">
+                <input type="text" id="userName2" placeholder="Seu Nome" required><br><br>
+                <textarea id="userQuestion2" rows="4" placeholder="Escreva sua dúvida ou ideia..." required></textarea><br><br>
+                <button onclick="addPost('topic2', 'userName2', 'userQuestion2')">Enviar</button>
+            </div>
+        </section>
+
+        <!-- Tema 3 -->
+        <section class="forum-section">
+            <h2>3. Tecnologia e Inovação em Sala de Aula</h2>
+            <p>Compartilhe experiências sobre o uso de tecnologias em sequências didáticas.</p>
+            <div class="posts-container" id="topic3">
+                <!-- As postagens serão adicionadas dinamicamente aqui -->
+            </div>
+            <div id="postForm3">
+                <input type="text" id="userName3" placeholder="Seu Nome" required><br><br>
+                <textarea id="userQuestion3" rows="4" placeholder="Escreva sua dúvida ou ideia..." required></textarea><br><br>
+                <button onclick="addPost('topic3', 'userName3', 'userQuestion3')">Enviar</button>
             </div>
         </section>
     </div>
@@ -181,71 +206,24 @@
     </footer>
 
     <script>
-        // Armazena as postagens temporariamente
-        const posts = [];
-
-        // Função para adicionar uma nova pergunta ao fórum
-        function addPost() {
-            const name = document.getElementById("userName").value;
-            const question = document.getElementById("userQuestion").value;
+        function addPost(topicId, userNameId, userQuestionId) {
+            const name = document.getElementById(userNameId).value;
+            const question = document.getElementById(userQuestionId).value;
 
             if (name && question) {
-                const post = {
-                    author: name,
-                    content: question,
-                    responses: []
-                };
-                
-                posts.push(post);
-                renderPosts();
-                document.getElementById("userName").value = '';
-                document.getElementById("userQuestion").value = '';
-            } else {
-                alert("Por favor, preencha seu nome e sua dúvida.");
-            }
-        }
-
-        // Função para renderizar todas as perguntas e respostas
-        function renderPosts() {
-            const postsContainer = document.getElementById("postsContainer");
-            postsContainer.innerHTML = '';
-
-            posts.forEach((post, postIndex) => {
                 const postDiv = document.createElement("div");
                 postDiv.classList.add("post");
-
                 postDiv.innerHTML = `
-                    <p class="post-author">${post.author} perguntou:</p>
-                    <p class="post-content">${post.content}</p>
-                    <button onclick="addResponse(${postIndex})">Responder</button>
-                    <div class="responses">
-                        ${post.responses.map(response => `
-                            <div class="response">
-                                <p class="response-author">${response.author} respondeu:</p>
-                                <p class="response-content">${response.content}</p>
-                            </div>
-                        `).join('')}
-                    </div>
+                    <p class="post-author">${name} perguntou:</p>
+                    <p class="post-content">${question}</p>
                 `;
 
-                postsContainer.appendChild(postDiv);
-            });
-        }
+                document.getElementById(topicId).appendChild(postDiv);
 
-        // Função para adicionar uma resposta a uma pergunta específica
-        function addResponse(postIndex) {
-            const responseAuthor = prompt("Seu nome:");
-            const responseContent = prompt("Sua resposta:");
-
-            if (responseAuthor && responseContent) {
-                posts[postIndex].responses.push({
-                    author: responseAuthor,
-                    content: responseContent
-                });
-                
-                renderPosts();
+                document.getElementById(userNameId).value = '';
+                document.getElementById(userQuestionId).value = '';
             } else {
-                alert("Por favor, preencha seu nome e sua resposta.");
+                alert("Por favor, preencha seu nome e sua pergunta.");
             }
         }
     </script>
