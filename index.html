@@ -69,16 +69,33 @@
             background-color: #45a049;
         }
 
-        /* Estilo do conteúdo principal */
+        /* Layout principal com introdução e login */
         main {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             padding: 20px;
-            text-align: center;
+        }
+
+        .intro {
+            flex: 2;
+            margin-right: 20px;
+        }
+
+        .intro h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .intro p {
+            line-height: 1.6;
+            text-align: justify;
         }
 
         /* Estilo do formulário de login */
         .login-container {
+            flex: 1;
             max-width: 400px;
-            margin: 20px auto;
             padding: 20px;
             background-color: #f9f9f9;
             border-radius: 8px;
@@ -114,14 +131,19 @@
 
         /* Responsividade para dispositivos móveis */
         @media (max-width: 768px) {
-            nav ul li {
-                display: block;
-                margin: 5px 0;
+            main {
+                flex-direction: column;
+                align-items: center;
             }
 
-            header {
-                min-height: 30vh; /* Ajusta a altura mínima em dispositivos móveis */
-                font-size: 1.5em;
+            .intro {
+                margin-right: 0;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .login-container {
+                max-width: 100%;
             }
         }
     </style>
@@ -149,10 +171,15 @@
 </nav>
 
 <main>
-    <h2>Bem-vindo ao nosso site de interação para professores!</h2>
-    <p>Explore os recursos, aprenda novas formas de trabalhar conteúdos importantes e colabore com outros professores para melhorar a educação.</p>
-    
-    <!-- Formulário de Login -->
+    <div class="intro">
+        <h2>Bem-vindo ao nosso projeto!</h2>
+        <p>
+            Este site foi desenvolvido como parte de um projeto da disciplina de Multimídia e Recursos Educativos Digitais, 
+            que integra o programa de pós-graduação em Ensino de Ciência e Tecnologia da Universidade Tecnológica Federal do Paraná (UTFPR) 
+            e do Instituto Politécnico de Bragança (IPB). Aqui você encontrará diversos recursos e ferramentas para aprimorar sua prática docente.
+        </p>
+    </div>
+
     <div class="login-container">
         <h2>Login</h2>
         <form action="login.php" method="POST">
