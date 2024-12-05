@@ -40,7 +40,6 @@
             z-index: -1;
         }
 
-
         /* Estilo do menu de navegação */
         nav {
             background-color: #4CAF50;
@@ -76,6 +75,38 @@
             text-align: center;
         }
 
+        .games {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .game {
+            text-align: center;
+            width: 300px;
+        }
+
+        .game img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .game a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .game a:hover {
+            color: #4CAF50;
+        }
+
         /* Responsividade para dispositivos móveis */
         @media (max-width: 768px) {
             nav ul li {
@@ -86,6 +117,10 @@
             header {
                 height: 150px;
                 font-size: 1.5em;
+            }
+
+            .game {
+                width: 100%;
             }
         }
     </style>
@@ -111,13 +146,32 @@
         <li><a href="video.html">Vídeo</a></li>
     </ul>
 </nav>
-</head>
-<body>
 
-
+<div class="container">
     <section>
         <p>Explore jogos educativos que podem ser usados como recursos de aprendizagem.</p>
+        <div class="games">
+            <!-- Jogo 1 -->
+            <div class="game">
+                <a href="https://wordwall.net/pt/resource/80606373/saud%c3%a1vel-x-n%c3%a3o-saud%c3%a1vel" target="_blank">
+                    <img src="https://wordwall.net/resource/thumbnail/80606373" alt="Saudável x Não Saudável">
+                    Saudável x Não Saudável
+                </a>
+            </div>
+            <!-- Jogo 2 -->
+            <div class="game">
+                <a href="https://wordwall.net/pt/resource/82436730/ci%c3%aancias/classifica%c3%a7%c3%a3o-dos-grupos-alimentares" target="_blank">
+                    <img src="https://wordwall.net/resource/thumbnail/82436730" alt="Classificação dos Grupos Alimentares">
+                    Classificação dos Grupos Alimentares
+                </a>
+            </div>
+        </div>
     </section>
- </div>
+</div>
+
+<footer>
+    <p>&copy; 2023 Conexão Docente. Todos os direitos reservados.</p>
+</footer>
+
 </body>
 </html>
