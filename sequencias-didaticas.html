@@ -11,11 +11,11 @@
             padding: 0;
         }
 
-      /* Estilo do cabeçalho */
+        /* Estilo do cabeçalho */
         header {
             position: relative;
             width: 100%;
-            min-height: 50vh; /* Define uma altura mínima */
+            min-height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -25,7 +25,6 @@
             overflow: hidden;
         }
 
-        /* Estilo do vídeo de fundo */
         header video {
             position: absolute;
             top: 50%;
@@ -35,13 +34,11 @@
             min-height: 100%;
             width: auto;
             height: auto;
-            object-fit: cover; /* Garante que o vídeo cubra a área do cabeçalho */
-            object-position: center; /* Centraliza o conteúdo do vídeo */
+            object-fit: cover;
+            object-position: center;
             z-index: -1;
         }
 
-
-        /* Estilo do menu de navegação */
         nav {
             background-color: #4CAF50;
             overflow: hidden;
@@ -70,13 +67,38 @@
             background-color: #45a049;
         }
 
-        /* Estilo do conteúdo principal */
         .container {
             padding: 20px;
             text-align: center;
         }
 
-        /* Responsividade para dispositivos móveis */
+        .pdf-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .pdf-container img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .pdf-container a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .pdf-container a:hover {
+            color: #2E7D32;
+        }
+
         @media (max-width: 768px) {
             nav ul li {
                 display: block;
@@ -87,13 +109,16 @@
                 height: 150px;
                 font-size: 1.5em;
             }
+
+            .pdf-container img {
+                width: 150px;
+            }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <!-- Vídeo de fundo no cabeçalho -->
     <video autoplay loop muted playsinline>
         <source src="video.mp4" type="video/mp4">
         Seu navegador não suporta a tag de vídeo.
@@ -111,9 +136,26 @@
         <li><a href="video.html">Vídeo</a></li>
     </ul>
 </nav>
-        <p>Encontre e compartilhe sequências didáticas para enriquecer suas aulas.</p>
-    </section>
- </div>
+
+<div class="container">
+    <h2>Sequência Didática</h2>
+    <p>
+        Este documento é uma sequência didática, fruto da dissertação de mestrado da Mestre Débora Pontarollo 
+        e da Professora Doutora Marizete Cechin, desenvolvida para apoiar práticas pedagógicas no ensino de ciências 
+        e tecnologia.
+    </p>
+
+    <div class="pdf-container">
+        <img src="thumbnail.png" alt="Miniatura do Documento">
+        <a href="https://1drv.ms/b/s!ApO9MYJDLwm8jHDsUkrhVvAVqm8f?e=EphPsS" download>
+            Baixar Sequência Didática
+        </a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Conexão Docente. Todos os direitos reservados.</p>
+</footer>
 
 </body>
 </html>
