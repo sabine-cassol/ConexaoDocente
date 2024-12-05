@@ -11,11 +11,10 @@
             padding: 0;
         }
 
-        /* Estilo do cabeçalho */
         header {
             position: relative;
             width: 100%;
-            min-height: 50vh; /* Define uma altura mínima */
+            min-height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -25,7 +24,6 @@
             overflow: hidden;
         }
 
-        /* Estilo do vídeo de fundo */
         header video {
             position: absolute;
             top: 50%;
@@ -33,10 +31,8 @@
             transform: translate(-50%, -50%);
             min-width: 100%;
             min-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: cover; /* Garante que o vídeo cubra a área do cabeçalho */
-            object-position: center; /* Centraliza o conteúdo do vídeo */
+            object-fit: cover;
+            object-position: center;
             z-index: -1;
         }
 
@@ -70,15 +66,14 @@
 
         main {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: space-between;
+            align-items: flex-start;
             padding: 20px;
         }
 
         .intro {
-            text-align: center;
-            max-width: 800px;
-            margin-bottom: 40px;
+            flex: 2;
+            margin-right: 20px;
         }
 
         .intro h2 {
@@ -92,12 +87,12 @@
         }
 
         .login-container {
+            flex: 1;
             max-width: 400px;
             padding: 20px;
             background-color: #f9f9f9;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-bottom: 40px;
         }
 
         .login-container h2 {
@@ -128,20 +123,36 @@
         }
 
         .professores {
-            text-align: center;
+            display: flex;
+            align-items: center;
             margin-top: 40px;
         }
 
         .professores img {
             max-width: 150px;
-            margin-bottom: 20px;
+            margin-right: 20px;
         }
 
         .professores p {
             line-height: 1.6;
+            margin: 0;
         }
 
         @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+
+            .professores {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .professores img {
+                margin-bottom: 20px;
+            }
+
             .login-container {
                 max-width: 100%;
             }
@@ -177,6 +188,14 @@
             que integra o programa de pós-graduação em Ensino de Ciência e Tecnologia da Universidade Tecnológica Federal do Paraná (UTFPR) 
             e do Instituto Politécnico de Bragança (IPB). Aqui você encontrará diversos recursos e ferramentas para aprimorar sua prática docente.
         </p>
+        <div class="professores">
+            <img src="UTFPR-IPB.png" alt="Logo da disciplina">
+            <p>
+                Esta disciplina é ministrada em conjunto pela professora Eliana Ishikawa, vinculada à Universidade Tecnológica Federal do Paraná (UTFPR), 
+                e pelo professor Vítor Barrigão Gonçalves, do Instituto Politécnico de Bragança (IPB). 
+                O trabalho colaborativo une os programas de pós-graduação das duas instituições, promovendo inovação e integração acadêmica.
+            </p>
+        </div>
     </div>
 
     <div class="login-container">
@@ -190,15 +209,6 @@
             
             <button type="submit">Entrar</button>
         </form>
-    </div>
-
-    <div class="professores">
-        <img src="UTFPR-IPB.png" alt="Logo da disciplina">
-        <p>
-            Esta disciplina é ministrada em conjunto pela professora Eliana Ishikawa, vinculada à Universidade Tecnológica Federal do Paraná (UTFPR), 
-            e pelo professor Vítor Barrigão Gonçalves, do Instituto Politécnico de Bragança (IPB). 
-            O trabalho colaborativo une os programas de pós-graduação das duas instituições, promovendo inovação e integração acadêmica.
-        </p>
     </div>
 </main>
 
