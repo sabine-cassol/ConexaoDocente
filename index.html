@@ -157,6 +157,20 @@
         </div>
     </div>
 </main>
+<script>
+    // Captura o caminho atual da URL
+    const currentPath = window.location.pathname;
+
+    // Seleciona todos os links do menu
+    const menuLinks = document.querySelectorAll("nav ul li a");
+
+    // Percorre os links e adiciona a classe 'active' ao link correspondente
+    menuLinks.forEach(link => {
+        if (link.getAttribute("href") === currentPath) {
+            link.classList.add("active");
+        }
+    });
+</script>
 
 </body>
 </html>
