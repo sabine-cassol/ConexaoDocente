@@ -170,18 +170,39 @@
         <p>&copy; 2024 Conexão Docente - Todos os direitos reservados</p>
     </footer>
 
-    <script>
-        // Captura o formulário
-        const form = document.getElementById('contactForm');
-        const successMessage = document.getElementById('successMessage');
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    // Inicializa o EmailJS com o seu User ID (fornecido pelo painel do EmailJS)
+    emailjs.init("GFSsQ1st_moIuMJ4Q");
 
-        // Adiciona evento para o envio
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede o envio padrão
-            successMessage.style.display = 'block'; // Exibe a mensagem de sucesso
-            form.reset(); // Limpa os campos do formulário
-        });
-    </script>
+    // Captura o formulário
+    const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+
+    // Adiciona o evento de envio
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Impede o envio padrão
+
+        // Cria o objeto com os dados do formulário
+        const formData = {
+            nome: form.nome.value,
+            email: form.email.value,
+            mensagem: form.mensagem.value
+        };
+
+        // Envia o e-mail usando o serviço e modelo configurados no EmailJS
+        emailjs.send("service_xgzjj29", "template_8hgvoe7", formData)
+            .then(() => {
+                successMessage.style.display = 'block'; // Exibe a mensagem de sucesso
+                form.reset(); // Limpa o formulário
+            })
+            .catch(error => {
+                console.error("Erro ao enviar mensagem:", error);
+                alert("Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.");
+            });
+    });
+</script>
+
     <script>
     // Captura o caminho atual da URL
     const currentPath = window.location.pathname;
